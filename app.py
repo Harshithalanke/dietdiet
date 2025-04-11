@@ -12,6 +12,7 @@ def index():
     suggestion = None
     if request.method == "POST":
         disease = request.form.get("disease", "").strip().capitalize()
+        print("FORM SUBMITTED:", disease)
         info = model.get(disease)
         if info:
             suggestion = {
@@ -20,5 +21,3 @@ def index():
             }
     return render_template("index.html", suggestion=suggestion)
 
-if __name__ == "__main__":
-    app.run(debug=True)
