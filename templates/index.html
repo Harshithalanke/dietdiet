@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Diet Suggester</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background: #f0f2f5;
+        }
+        h1 {
+            color: #333;
+        }
+        input, button {
+            padding: 8px;
+            margin-top: 10px;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            background: #fff;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Multi-Disease AI Diet Suggester</h1>
+    <form method="POST">
+        <label for="disease">Enter Disease:</label><br>
+        <input type="text" id="disease" name="disease" required>
+        <button type="submit">Suggest</button>
+    </form>
+
+    {% if suggestion %}
+    <div class="result">
+        <h2>Foods to Eat:</h2>
+        <p>{{ suggestion.eat }}</p>
+        <h2>Foods to Avoid:</h2>
+        <p>{{ suggestion.avoid }}</p>
+    </div>
+    {% endif %}
+</body>
+</html>
