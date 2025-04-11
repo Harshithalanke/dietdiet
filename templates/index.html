@@ -25,11 +25,21 @@
 </head>
 <body>
     <h1>Multi-Disease AI Diet Suggester</h1>
-    <form action="/" method="POST">
+    <form action="/" method="POST" onsubmit="return validateForm()">
         <label for="disease">Enter Disease:</label><br>
         <input type="text" id="disease" name="disease" required>
         <button type="submit">Suggest</button>
     </form>
+    <script>
+    function validateForm() {
+        const input = document.getElementById("disease").value.trim();
+        if (input === "") {
+            alert("Please enter a disease.");
+            return false;
+        }
+        return true;
+    }
+    </script>
 
     {% if suggestion %}
     <div class="result">
