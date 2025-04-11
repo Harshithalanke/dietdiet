@@ -11,7 +11,7 @@ with open("model.pkl", "rb") as f:
 def index():
     suggestion = None
     if request.method == "POST":
-        disease = request.form.get("disease")
+        disease = request.form.get("disease", "").strip().capitalize()
         info = model.get(disease)
         if info:
             suggestion = {
